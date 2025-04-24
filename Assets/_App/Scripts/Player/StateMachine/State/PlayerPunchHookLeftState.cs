@@ -21,7 +21,7 @@ public class PlayerPunchHookLeftState : PlayerAnimState
     public override void Update()
     {
         base.Update();
-        if (!PoseConditions.IsPunchingLeft(poseLandmarkerResult.poseLandmarks[0].landmarks))
+        if (triggerCalled)
         {
             stateMachine.ChangeState(player.idleState);
         }

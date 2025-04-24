@@ -3,12 +3,13 @@ using Mediapipe.Tasks.Vision.PoseLandmarker;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class PoseDetectionFullBody : Singleton<PoseDetectionFullBody>
 {
     private float landmarkVisibilityThreshold = 0.8f;
-    private float frameMargin = 0.02f;
+    private float frameMargin = 0.00f;
     private bool isFullBody = false;
     private bool wasFullBodyLast = false;
     public bool IsFullBody => isFullBody;
@@ -22,6 +23,7 @@ public class PoseDetectionFullBody : Singleton<PoseDetectionFullBody>
 
     private void HandlePoseResult(PoseLandmarkerResult result)
     {
+
         bool currentFullBodyStatus = false;
         if (result.poseLandmarks != null && result.poseLandmarks.Count > 0 && result.poseLandmarks[0].landmarks != null)
         {
@@ -46,6 +48,8 @@ public class PoseDetectionFullBody : Singleton<PoseDetectionFullBody>
 
     private bool IsFullBodyVisible(IReadOnlyList<NormalizedLandmark> landmarks)
     {
+        int indexLeftFoot = (int)PoseLandmarkName.LeftFootIndex;
+        Debug.LogWarning("LeftFootIndex y: " + landmarks[indexLeftFoot].y);
         if (!IsLandmarkValid(landmarks, PoseLandmarkName.Nose)) return false;
 
         bool leftShoulderValid = IsLandmarkValid(landmarks, PoseLandmarkName.LeftShoulder);

@@ -27,7 +27,7 @@ public static class PoseConditions
         if (indexRightKnee > 0 && indexRightKnee < landmarks.Count && landmarks[indexRightKnee] != null)
             kneeRightY = landmarks[indexRightKnee].y;
 
-        return hipLeftY > kneeLeftY || hipRightY > kneeRightY;
+        return hipLeftY > kneeLeftY && hipRightY > kneeRightY;
     }
 
     public static bool IsPunchingLeft(IReadOnlyList<NormalizedLandmark> landmarks)

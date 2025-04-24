@@ -27,9 +27,5 @@ public class PlayerFullBodyState : PlayerState
             stateMachine.ChangeState(player.notFullbodyState);
             return;
         }
-        else
-        {
-            stateMachine.ChangeState(player.idleState);
-        }
     }
 }

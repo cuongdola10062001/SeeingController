@@ -595,6 +595,7 @@ Transform:
   - {fileID: 1064799461}
   - {fileID: 1051152911}
   - {fileID: 1746554509}
+  - {fileID: 644320483}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &420786853
@@ -712,6 +713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 5866666020174994084}
   rb: {fileID: 0}
+  poseDetectionFullBody: {fileID: 1746554510}
 --- !u!1 &589593296
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +819,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _modalPanel: {fileID: 589593296}
   _contents: {fileID: 6938625115693525800, guid: 43e0b06a07be91d9ab8df9c5e822664a, type: 3}
+--- !u!1 &644320482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 644320483}
+  - component: {fileID: 644320484}
+  m_Layer: 0
+  m_Name: StanceEvaluatorManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &644320483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644320482}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 383716452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &644320484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644320482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 362344d4795ebcf458c166caadae1d90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  punchLeftProfile: {fileID: 11400000, guid: 069c0af65c3a3e643aa50f17b29bbe84, type: 2}
+  punchRightProfile: {fileID: 11400000, guid: 8a32055bf4ead5e4db76b92abaae47e8, type: 2}
+  crouchProfile: {fileID: 0}
+  highKickLeftProfile: {fileID: 11400000, guid: 2fed4fddf4068cc42be866ea88205e32, type: 2}
+  HighKickRightProfile: {fileID: 11400000, guid: b90ec98b2bde1bb4f9623adcdd08baed, type: 2}
 --- !u!1001 &1006057040
 PrefabInstance:
   m_ObjectHideFlags: 0

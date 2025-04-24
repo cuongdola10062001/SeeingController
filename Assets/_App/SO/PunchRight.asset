@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef2f111c8e9bce14baea6576c1d8bd65, type: 3}
+  m_Name: PunchRight
+  m_EditorClassIdentifier: 
+  stanceName: "\u0110\u1EA5m ph\u1EA3i"
+  angleCriteriaList: []
+  distanceCriteriaList: []
+  yPositionStandardRelativeToInitStance: []
+  currentYPositionCriteriaList:
+  - description: 
+    landmark1: 0
+    landmark2: 15
+    comparisonMethod: 1
+    yTolerance: 0
+    isEnabled: 1
+    isCompletionCriterion: 1
+    scoreWeight: 0
+    messageError: 
+  - description: 
+    landmark1: 24
+    landmark2: 32
+    comparisonMethod: 0
+    yTolerance: 0
+    isEnabled: 1
+    isCompletionCriterion: 1
+    scoreWeight: 0
+    messageError: 
+  - description: 
+    landmark1: 23
+    landmark2: 31
+    comparisonMethod: 0
+    yTolerance: 0
+    isEnabled: 1
+    isCompletionCriterion: 1
+    scoreWeight: 0
+    messageError: 

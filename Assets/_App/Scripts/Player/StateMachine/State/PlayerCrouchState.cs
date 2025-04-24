@@ -11,6 +11,7 @@ public class PlayerCrouchState : PlayerAnimState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("Crouch State");
     }
 
     public override void Exit()

@@ -19,12 +19,6 @@ public abstract class BaseEvaluatorStance : MonoBehaviour
         {
             return true;
         }
-
-        /*if ((stanceProfile.angleCriteriaList?.Count ?? 0) == 0 && (stanceProfile.distanceCriteriaList?.Count ?? 0) == 0)
-        {
-            return true;
-        }*/
-
         bool allMet = true;
 
         angleCriteriaStatus.Clear();
