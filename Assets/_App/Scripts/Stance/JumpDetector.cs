@@ -7,12 +7,13 @@ public class JumpDetector
     private struct FootSnapshot
     {
         public float time;
-        public float avgFootY;
+        public float leftY;
+        public float rightY;
     }
+    private readonly float minDeltaY = 0.08f;     // Tối thiểu giảm bao nhiêu thì tính là nhảy
+    private readonly float maxWindowTime = 0.1f; // Tối đa thời gian để phát hiện giảm đột ngột
 
-    private Queue<FootSnapshot> snapshotHistory = new Queue<FootSnapshot>();
-    private const float windowTime = 0.15f;
-    private const float jumpDeltaThreshold = 0.06f;
+    private Queue<FootSnapshot> history = new Queue<FootSnapshot>();
 
     public bool IsJumping(IReadOnlyList<NormalizedLandmark> landmarks)
     {
@@ -21,23 +22,30 @@ public class JumpDetector
 
         float leftY = landmarks[(int)PoseLandmarkName.LeftFootIndex].y;
         float rightY = landmarks[(int)PoseLandmarkName.RightFootIndex].y;
-        float avgY = (leftY + rightY) / 2f;
 
         float now = Time.time;
-        snapshotHistory.Enqueue(new FootSnapshot { time = now, avgFootY = avgY });
+        history.Enqueue(new FootSnapshot { time = now, leftY = leftY, rightY = rightY });
 
-        // Loại bỏ snapshot cũ hơn 0.15s
-        while (snapshotHistory.Count > 0 && now - snapshotHistory.Peek().time > windowTime)
+        // Loại bỏ snapshot quá cũ
+        while (history.Count > 0 && now - history.Peek().time > maxWindowTime)
         {
-            snapshotHistory.Dequeue();
+            history.Dequeue();
         }
 
-        if (snapshotHistory.Count == 0) return false;
+        // Duyệt snapshot cũ trong 0.1s gần đây
+        foreach (var snapshot in history)
+        {
+            float deltaTime = now - snapshot.time;
+            float leftDelta = snapshot.leftY - leftY;
+            float rightDelta = snapshot.rightY - rightY;
 
-        float earliestY = snapshotHistory.Peek().avgFootY;
+            if (deltaTime <= maxWindowTime && leftDelta >= minDeltaY && rightDelta >= minDeltaY)
+            {
+                history.Clear(); // Reset sau khi nhận diện jump
+                return true;
+            }
+        }
 
-        float deltaY = avgY - earliestY;
-
-        return deltaY < -jumpDeltaThreshold; 
+        return false;
     }
 }

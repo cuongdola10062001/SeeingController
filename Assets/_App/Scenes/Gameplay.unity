@@ -865,7 +865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   punchLeftProfile: {fileID: 11400000, guid: 069c0af65c3a3e643aa50f17b29bbe84, type: 2}
   punchRightProfile: {fileID: 11400000, guid: 8a32055bf4ead5e4db76b92abaae47e8, type: 2}
-  crouchProfile: {fileID: 0}
+  crouchProfile: {fileID: 11400000, guid: 731651476169db3458f87c3faa8be323, type: 2}
   highKickLeftProfile: {fileID: 11400000, guid: 2fed4fddf4068cc42be866ea88205e32, type: 2}
   HighKickRightProfile: {fileID: 11400000, guid: b90ec98b2bde1bb4f9623adcdd08baed, type: 2}
 --- !u!1001 &1006057040

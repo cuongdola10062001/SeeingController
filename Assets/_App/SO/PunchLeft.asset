@@ -44,3 +44,12 @@ MonoBehaviour:
     isCompletionCriterion: 1
     scoreWeight: 0
     messageError: 
+  - description: 
+    landmark1: 11
+    landmark2: 15
+    comparisonMethod: 0
+    yTolerance: 0
+    isEnabled: 1
+    isCompletionCriterion: 1
+    scoreWeight: 0
+    messageError: 

@@ -48,8 +48,6 @@ public class PoseDetectionFullBody : Singleton<PoseDetectionFullBody>
 
     private bool IsFullBodyVisible(IReadOnlyList<NormalizedLandmark> landmarks)
     {
-        int indexLeftFoot = (int)PoseLandmarkName.LeftFootIndex;
-        Debug.LogWarning("LeftFootIndex y: " + landmarks[indexLeftFoot].y);
         if (!IsLandmarkValid(landmarks, PoseLandmarkName.Nose)) return false;
 
         bool leftShoulderValid = IsLandmarkValid(landmarks, PoseLandmarkName.LeftShoulder);

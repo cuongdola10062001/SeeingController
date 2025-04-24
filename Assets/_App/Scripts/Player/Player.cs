@@ -18,7 +18,11 @@ public class Player : MonoBehaviour
     public PlayerPunchHookLeftState punchHookRightState { get; private set; }
     public PlayerHighKickLeftState highKickLeftState { get; private set; }
     public PlayerHighKickRightState highKickRightState { get; private set; }
+    public PlayerDodgeLeftState dodgeLeftState { get; private set; }
+    public PlayerDodgeRightState dodgeRightState { get; private set; }
     public PlayerJumpState jumpState { get; private set; }
+
+
 
     private void Awake()
     {
@@ -32,6 +36,8 @@ public class Player : MonoBehaviour
         punchHookRightState = new PlayerPunchHookLeftState(this, stateMachine, "PunchHook_R");
         highKickLeftState = new PlayerHighKickLeftState(this, stateMachine, "HighKickRound_L");
         highKickRightState = new PlayerHighKickRightState(this, stateMachine, "HighKickRound_R");
+        dodgeLeftState = new PlayerDodgeLeftState(this, stateMachine, "Dodge_L");
+        dodgeRightState = new PlayerDodgeRightState(this, stateMachine, "Dodge_R");
         jumpState = new PlayerJumpState(this, stateMachine, "Jump");
     }
 

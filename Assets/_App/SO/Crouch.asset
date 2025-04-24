@@ -10,25 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef2f111c8e9bce14baea6576c1d8bd65, type: 3}
-  m_Name: PunchRight
+  m_Name: Crouch
   m_EditorClassIdentifier: 
-  stanceName: "\u0110\u1EA5m ph\u1EA3i"
+  stanceName: "Ng\u1ED3i xu\u1ED1ng"
   angleCriteriaList: []
   distanceCriteriaList: []
   yPositionStandardRelativeToInitStance: []
   currentYPositionCriteriaList:
   - description: 
-    landmark1: 0
-    landmark2: 15
-    comparisonMethod: 1
-    yTolerance: 0
-    isEnabled: 1
-    isCompletionCriterion: 1
-    scoreWeight: 0
-    messageError: 
-  - description: 
-    landmark1: 24
-    landmark2: 32
+    landmark1: 26
+    landmark2: 24
     comparisonMethod: 0
     yTolerance: 0
     isEnabled: 1
@@ -36,17 +27,8 @@ MonoBehaviour:
     scoreWeight: 0
     messageError: 
   - description: 
-    landmark1: 23
-    landmark2: 31
-    comparisonMethod: 0
-    yTolerance: 0
-    isEnabled: 1
-    isCompletionCriterion: 1
-    scoreWeight: 0
-    messageError: 
-  - description: 
-    landmark1: 12
-    landmark2: 16
+    landmark1: 25
+    landmark2: 23
     comparisonMethod: 0
     yTolerance: 0
     isEnabled: 1
