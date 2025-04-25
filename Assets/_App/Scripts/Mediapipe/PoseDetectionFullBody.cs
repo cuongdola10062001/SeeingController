@@ -1,28 +1,42 @@
 ﻿using Mediapipe.Tasks.Components.Containers;
 using Mediapipe.Tasks.Vision.PoseLandmarker;
+using Mediapipe.Unity.Sample;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
 
-public class PoseDetectionFullBody : Singleton<PoseDetectionFullBody>
+public class PoseDetectionFullBody :MonoBehaviour
 {
+    [SerializeField] private PoseRunnerManager poseRunner;
+    [SerializeField] private InputManager inputManager;
+
     private float landmarkVisibilityThreshold = 0.8f;
     private float frameMargin = 0.00f;
-    private bool isFullBody = false;
     private bool wasFullBodyLast = false;
     public bool IsFullBody => isFullBody;
+    private bool isFullBody = false;
 
     public event Action<bool> OnFullBodyStatusUpdated;
 
-    private void Update()
+    protected virtual void OnEnable()
     {
-        this.HandlePoseResult(InputManager.Instance.CurrentPoseTarget);
+        if (poseRunner != null)
+        {
+            poseRunner.OnPoseResultUpdated += this.HandlePoseResult;
+        }
+    }
+
+    protected virtual void OnDisable()
+    {
+        if (poseRunner != null)
+        {
+            poseRunner.OnPoseResultUpdated -= this.HandlePoseResult;
+        }
     }
 
     private void HandlePoseResult(PoseLandmarkerResult result)
     {
+        if (result.poseLandmarks == null || result.poseLandmarks[0].landmarks == null) return;
 
         bool currentFullBodyStatus = false;
         if (result.poseLandmarks != null && result.poseLandmarks.Count > 0 && result.poseLandmarks[0].landmarks != null)
@@ -32,6 +46,7 @@ public class PoseDetectionFullBody : Singleton<PoseDetectionFullBody>
 
         wasFullBodyLast = isFullBody;
         isFullBody = currentFullBodyStatus;
+        inputManager.UpdateIsFullbody(isFullBody);
 
         if (isFullBody && !wasFullBodyLast)
         {
@@ -49,18 +64,6 @@ public class PoseDetectionFullBody : Singleton<PoseDetectionFullBody>
     private bool IsFullBodyVisible(IReadOnlyList<NormalizedLandmark> landmarks)
     {
         if (!IsLandmarkValid(landmarks, PoseLandmarkName.Nose)) return false;
-
-        bool leftShoulderValid = IsLandmarkValid(landmarks, PoseLandmarkName.LeftShoulder);
-        bool rightShoulderValid = IsLandmarkValid(landmarks, PoseLandmarkName.RightShoulder);
-        if (!leftShoulderValid && !rightShoulderValid) return false;
-
-        bool leftHipValid = IsLandmarkValid(landmarks, PoseLandmarkName.LeftHip);
-        bool rightHipValid = IsLandmarkValid(landmarks, PoseLandmarkName.RightHip);
-        if (!leftHipValid && !rightHipValid) return false;
-
-        bool leftKneeValid = IsLandmarkValid(landmarks, PoseLandmarkName.LeftKnee);
-        bool rightKneeValid = IsLandmarkValid(landmarks, PoseLandmarkName.RightKnee);
-        if (!leftKneeValid && !rightKneeValid) return false;
 
         bool leftFootValid = IsLandmarkValid(landmarks, PoseLandmarkName.LeftFootIndex);
         bool rightFootValid = IsLandmarkValid(landmarks, PoseLandmarkName.RightFootIndex);

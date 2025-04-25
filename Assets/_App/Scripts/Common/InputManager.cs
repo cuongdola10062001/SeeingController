@@ -5,6 +5,9 @@ public class InputManager : Singleton<InputManager>
     public PoseLandmarkerResult CurrentPoseTarget => currentPoseTarget;
     private PoseLandmarkerResult currentPoseTarget;
 
+    private bool isFullBody = false;
+    public bool IsFullBody => isFullBody;
+
     private readonly object _currentTargetLock = new object();
     private bool isStale = false;
 
@@ -21,6 +24,15 @@ public class InputManager : Singleton<InputManager>
         lock (_currentTargetLock)
         {
             newTarget.CloneTo(ref currentPoseTarget);
+            isStale = true;
+        }
+    }
+
+    public void UpdateIsFullbody(bool isFullbody)
+    {
+        lock (_currentTargetLock)
+        {
+            this.isFullBody = isFullbody;
             isStale = true;
         }
     }

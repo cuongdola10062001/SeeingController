@@ -17,7 +17,7 @@ public class PoseRunnerManager : VisionTaskApiRunner<PoseLandmarker>
     private TextureFramePool _textureFramePool;
 
     public readonly PoseLandmarkDetectionConfig config = new PoseLandmarkDetectionConfig();
-    public event Action<PoseLandmarkerResult, long> OnPoseResultUpdated;
+    public event Action<PoseLandmarkerResult> OnPoseResultUpdated;
 
     public override void Stop()
     {
@@ -162,7 +162,7 @@ public class PoseRunnerManager : VisionTaskApiRunner<PoseLandmarker>
 
     private void OnPoseLandmarkDetectionOutput(PoseLandmarkerResult result, Image image, long timestamp)
     {
-        OnPoseResultUpdated?.Invoke(result, timestamp);
+        OnPoseResultUpdated?.Invoke(result);
         inputManager.UpdateCurrentPoseTarget(result);
         _customPoseLandmarkerResultAnnotationController.DrawLater(result);
         DisposeAllMasks(result);

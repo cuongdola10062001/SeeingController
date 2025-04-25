@@ -13,11 +13,16 @@ public class StanceEvaluatorManager : BaseEvaluatorStance
     public StanceProfile highKickLeftProfile;
     public StanceProfile HighKickRightProfile;
 
+    public StanceProfile LeftHand;
+    public StanceProfile RightHand;
+    public StanceProfile StandStraight;
+
     private void Awake()
     {
         Instance = this;
     }
 
+    #region Animation Profile
     public bool IsPunchLeft(IReadOnlyList<NormalizedLandmark> landmarks)
     {
         return EvaluateStance(landmarks, punchLeftProfile);
@@ -42,4 +47,22 @@ public class StanceEvaluatorManager : BaseEvaluatorStance
     {
         return EvaluateStance(landmarks, HighKickRightProfile);
     }
+    #endregion
+
+    #region Select Profile
+    public bool IsStandStraight(IReadOnlyList<NormalizedLandmark> landmarks)
+    {
+        return EvaluateStance(landmarks, StandStraight);
+    }
+
+    public bool IsLeftHand(IReadOnlyList<NormalizedLandmark> landmarks)
+    {
+        return EvaluateStance(landmarks, LeftHand);
+    }
+
+    public bool IsRightHand(IReadOnlyList<NormalizedLandmark> landmarks)
+    {
+        return EvaluateStance(landmarks, RightHand);
+    }
+    #endregion
 }

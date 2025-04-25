@@ -8,13 +8,13 @@ public class PlayerState
     protected PlayerStateMachine stateMachine;
     protected Player player;
 
-    protected Rigidbody2D rb;
+    protected Rigidbody rb;
 
     protected PoseLandmarkerResult poseLandmarkerResult;
 
     protected float xInput;
     protected float yInput;
-    private string animBoolName;
+    protected string animBoolName;
 
     protected float stateTimer;
     protected bool triggerCalled;
@@ -29,13 +29,15 @@ public class PlayerState
     public virtual void Enter()
     {
         player.anim.SetBool(animBoolName, true);
+        rb = player.rb;
         triggerCalled = false;
     }
 
-    public virtual void Update()
+    public virtual void LateUpdate()
     {
         stateTimer -= Time.deltaTime;
         poseLandmarkerResult = InputManager.Instance.CurrentPoseTarget;
+
         if (poseLandmarkerResult.poseLandmarks == null ||
             poseLandmarkerResult.poseLandmarks.Count <= 0 ||
             poseLandmarkerResult.poseLandmarks[0].landmarks == null) return;

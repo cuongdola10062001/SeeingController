@@ -10,8 +10,8 @@ public class JumpDetector
         public float leftY;
         public float rightY;
     }
-    private readonly float minDeltaY = 0.08f;     // Tối thiểu giảm bao nhiêu thì tính là nhảy
-    private readonly float maxWindowTime = 0.1f; // Tối đa thời gian để phát hiện giảm đột ngột
+    private readonly float minDeltaY = 0.06f;     // Tối thiểu giảm bao nhiêu thì tính là nhảy
+    private readonly float maxWindowTime = 0.2f; // Tối đa thời gian để phát hiện giảm đột ngột
 
     private Queue<FootSnapshot> history = new Queue<FootSnapshot>();
 

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef2f111c8e9bce14baea6576c1d8bd65, type: 3}
+  m_Name: RightHandSGRProfile
+  m_EditorClassIdentifier: 
+  stanceName: "T\u1EA3i ph\u1EA3i d\u01A1 l\xEAn"
+  angleCriteriaList: []
+  distanceCriteriaList: []
+  yPositionStandardRelativeToInitStance: []
+  currentYPositionCriteriaList:
+  - description: "tai ph\u1EA3i d\u01A1 l\xEAn"
+    landmark1: 0
+    landmark2: 19
+    comparisonMethod: 1
+    yTolerance: 0.02
+    isEnabled: 1
+    isCompletionCriterion: 1
+    scoreWeight: 0
+    messageError: 
+  - description: "tay tr\xE1i d\u01A1 xu\u1ED1ng"
+    landmark1: 13
+    landmark2: 19
+    comparisonMethod: 0
+    yTolerance: 0
+    isEnabled: 0
+    isCompletionCriterion: 0
+    scoreWeight: 0
+    messageError: 
