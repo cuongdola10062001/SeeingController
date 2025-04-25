@@ -234,7 +234,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1500, y: 800}
+  m_SizeDelta: {x: 1330, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &124065949
 MonoBehaviour:
@@ -1002,6 +1002,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d83d1aba1fb97b24b8119fb297766db1, type: 2}
   - {fileID: 11400000, guid: 3ee7689ba1e4c394abfe7d9a8ae9fc30, type: 2}
   - {fileID: 11400000, guid: b82dae645f777154d8ae8e68519675d5, type: 2}
+  - {fileID: 11400000, guid: 55ec1be6ae70a0548a62c86c7aa03b71, type: 2}
+  - {fileID: 11400000, guid: a79a538cfeb435c47810e7a6a577c961, type: 2}
+  - {fileID: 11400000, guid: 0b83f8a209ef8c244b859667b5be0346, type: 2}
+  - {fileID: 11400000, guid: 18ff5e226e8f6724296d08910b9c5a83, type: 2}
 --- !u!54 &460943807
 Rigidbody:
   m_ObjectHideFlags: 0

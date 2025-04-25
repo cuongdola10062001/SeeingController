@@ -32,6 +32,7 @@ public class PlayerSelectingState : PlayerFullBodyState
         if (poseLandmarkerResult.poseLandmarks == null || poseLandmarkerResult.poseLandmarks[0].landmarks == null) return;
 
         var landmarks = poseLandmarkerResult.poseLandmarks[0].landmarks;
+        if (landmarks == null || landmarks.Count <= 0) return;
 
         if (StanceEvaluatorManager.Instance.IsStandStraight(landmarks))
         {
