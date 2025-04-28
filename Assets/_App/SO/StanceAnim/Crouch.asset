@@ -13,15 +13,7 @@ MonoBehaviour:
   m_Name: Crouch
   m_EditorClassIdentifier: 
   stanceName: "Ng\u1ED3i xu\u1ED1ng"
-  angleCriteriaList:
-  - angleType: 0
-    targetAngle: 0
-    tolerance: 0
-    isUse3D: 0
-    isEnabled: 0
-    isCompletionCriterion: 0
-    scoreWeight: 0
-    messageError: 
+  angleCriteriaList: []
   distanceCriteriaList: []
   yPositionStandardRelativeToInitStance: []
   currentYPositionCriteriaList:
@@ -29,17 +21,9 @@ MonoBehaviour:
     landmark1: 26
     landmark2: 24
     comparisonMethod: 0
-    yTolerance: 0.05
-    isEnabled: 1
-    isCompletionCriterion: 1
-    scoreWeight: 0
-    messageError: 
+    yTolerance: 0
   - description: 
     landmark1: 25
     landmark2: 23
     comparisonMethod: 0
-    yTolerance: 0.05
-    isEnabled: 1
-    isCompletionCriterion: 1
-    scoreWeight: 0
-    messageError: 
+    yTolerance: 0

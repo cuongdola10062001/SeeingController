@@ -19,12 +19,4 @@ public class StanceProfile : ScriptableObject
 
     [Header("Relative Y Position Current Criteria")]
     public List<CurrentRelativeYCriterion> currentYPositionCriteriaList = new List<CurrentRelativeYCriterion>();
-
-    public bool HasAnyEnabledCompletionCriteria()
-    {
-        return (angleCriteriaList?.Any(c => c.isEnabled && c.isCompletionCriterion) ?? false) ||
-               (distanceCriteriaList?.Any(c => c.isEnabled && c.isCompletionCriterion) ?? false) ||
-               (yPositionStandardRelativeToInitStance?.Any(c => c.isEnabled && c.isCompletionCriterion) ?? false) ||
-               (currentYPositionCriteriaList?.Any(c => c.isEnabled && c.isCompletionCriterion) ?? false);
-    }
 }

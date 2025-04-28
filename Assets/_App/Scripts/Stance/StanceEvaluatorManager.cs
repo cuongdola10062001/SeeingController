@@ -6,6 +6,10 @@ public class StanceEvaluatorManager : BaseEvaluatorStance
 {
     public static StanceEvaluatorManager Instance { get; private set; }
 
+    public StanceProfile LeftHand;
+    public StanceProfile RightHand;
+    public StanceProfile StandStraight;
+
     [Header("Profiles")]
     public StanceProfile punchLeftProfile;
     public StanceProfile punchRightProfile;
@@ -13,9 +17,6 @@ public class StanceEvaluatorManager : BaseEvaluatorStance
     public StanceProfile highKickLeftProfile;
     public StanceProfile HighKickRightProfile;
 
-    public StanceProfile LeftHand;
-    public StanceProfile RightHand;
-    public StanceProfile StandStraight;
 
     private void Awake()
     {

@@ -96,4 +96,14 @@ public static class PoseUtilities
         // Quan trọng: Sử dụng z nếu use3D là true
         return use3D ? new Vector3(p.x, p.y, p.z) : new Vector3(p.x, p.y, 0);
     }
+
+    public static bool TryGetLandmark(IReadOnlyList<NormalizedLandmark> landmarks, int index, out NormalizedLandmark landmark)
+    {
+        landmark = default;
+        if (landmarks == null || index < 0 || index >= landmarks.Count)
+            return false;
+
+        landmark = landmarks[index];
+        return landmark != null;
+    }
 }

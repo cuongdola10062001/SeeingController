@@ -7,16 +7,6 @@ public class AngleCriterion
     public JointAngleType angleType = JointAngleType.LeftKnee;
     [Range(0f, 180f)] public float targetAngle = 90f;
     [Range(0f, 45f)] public float tolerance = 15f;
-    public bool isUse3D = true;
-    public bool isEnabled = true;
-
-    [Tooltip("Is the criterion MANDATORY for posture recognition?")]
-    public bool isCompletionCriterion = false;
-    [Tooltip("Weighted score if this criterion is used for scoring (0-100).")]
-    [Range(0, 100)] public float scoreWeight = 10;
-
-    [Tooltip("An error message will be displayed if this criterion is not met.")]
-    public string messageError = "The joint angle is not in the correct position.";
 
     public (int IndexA, int IndexB_Vertex, int IndexC) GetLandmarkIndices()
     {
@@ -62,7 +52,6 @@ public class AngleCriterion
 
     public bool IsAngleValid(float measuredAngle)
     {
-        if (!isEnabled) return true;
         if (measuredAngle < 0) return false;
 
         return Mathf.Abs(measuredAngle - targetAngle) <= tolerance;

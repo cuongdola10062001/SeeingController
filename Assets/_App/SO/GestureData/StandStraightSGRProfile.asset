@@ -21,17 +21,9 @@ MonoBehaviour:
     landmark1: 0
     landmark2: 20
     comparisonMethod: 1
-    yTolerance: 0.02
-    isEnabled: 1
-    isCompletionCriterion: 1
-    scoreWeight: 0
-    messageError: 
+    yTolerance: 0
   - description: hai tay do len
     landmark1: 0
     landmark2: 19
     comparisonMethod: 1
-    yTolerance: 0.02
-    isEnabled: 1
-    isCompletionCriterion: 1
-    scoreWeight: 0
-    messageError: 
+    yTolerance: 0

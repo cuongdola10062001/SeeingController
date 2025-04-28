@@ -14,7 +14,6 @@ public class PlayerIdleState : PlayerAnimState
     public override void Enter()
     {
         base.Enter();
-        //this.player.anim.gameObject.transform.position = Vector3.zero;
         rb.velocity = Vector3.zero;
 
     }
