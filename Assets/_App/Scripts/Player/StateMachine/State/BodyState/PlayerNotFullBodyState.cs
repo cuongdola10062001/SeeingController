@@ -11,12 +11,11 @@ public class PlayerNotFullBodyState : PlayerState
     public override void Enter()
     {
         base.Enter();
+
+        UIManager.Instance.InstructText.text = StringUtilities.MoveAway;
+        UIManager.Instance.InstructText.gameObject.SetActive(true);
         this.player.anim.gameObject.SetActive(false);
-
         UIManager.Instance.UISelection.gameObject.SetActive(false);
-
-        UIManager.Instance.DesPoseFullbodyText.text = StringUtilities.MoveAway;
-        UIManager.Instance.DesPoseFullbodyText.gameObject.SetActive(true);
     }
 
     public override void Exit()
@@ -27,9 +26,6 @@ public class PlayerNotFullBodyState : PlayerState
     public override void LateUpdate()
     {
         base.LateUpdate();
-
-        if (poseLandmarkerResult.poseLandmarks == null || poseLandmarkerResult.poseLandmarks[0].landmarks == null) return;
-
 
         if (InputManager.Instance.IsFullBody)
         {

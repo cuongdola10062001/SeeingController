@@ -2,6 +2,7 @@
 {
     public const string Start = "Bắt đầu";
     public const string MoveAway = "Hãy đi ra xa 2m để lấy hết được cơ thể người";
+    public const string WaitingMove = "Hãy quay lại phạm vi 2m";
     public const string Done = "Hoàn thành";
     public const string Loading = "Đang tải...";
     public const string TryAgain = "Thử lại";

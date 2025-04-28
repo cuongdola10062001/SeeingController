@@ -21,17 +21,9 @@ MonoBehaviour:
     landmark1: 0
     landmark2: 20
     comparisonMethod: 1
-    yTolerance: 0.02
-    isEnabled: 1
-    isCompletionCriterion: 1
-    scoreWeight: 0
-    messageError: 
+    yTolerance: 0
   - description: "tay ph\u1EA3i d\u01A1 xu\u1ED1ng"
-    landmark1: 13
+    landmark1: 11
     landmark2: 19
     comparisonMethod: 0
     yTolerance: 0
-    isEnabled: 0
-    isCompletionCriterion: 0
-    scoreWeight: 0
-    messageError: 

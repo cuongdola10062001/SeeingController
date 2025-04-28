@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class UIManager : Singleton<UIManager>
 {
-    [SerializeField] private TextMeshProUGUI desPoseFullbodyText;
-    public TextMeshProUGUI DesPoseFullbodyText=> desPoseFullbodyText;
+    [SerializeField] private TextMeshProUGUI instructText;
+    public TextMeshProUGUI InstructText=> instructText;
 
     [SerializeField] private UISelection uiSelection;
     public UISelection UISelection => uiSelection;

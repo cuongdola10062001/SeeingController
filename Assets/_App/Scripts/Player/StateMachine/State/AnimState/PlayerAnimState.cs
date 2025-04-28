@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimState : PlayerFullBodyState
+public class PlayerAnimState : PlayerState
 {
     public PlayerAnimState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
@@ -13,6 +13,7 @@ public class PlayerAnimState : PlayerFullBodyState
         base.Enter();
         this.player.anim.gameObject.SetActive(true);
         UIManager.Instance.UISelection.gameObject.SetActive(false);
+        UIManager.Instance.InstructText.gameObject.SetActive(false);
     }
 
     public override void Exit()
@@ -23,6 +24,12 @@ public class PlayerAnimState : PlayerFullBodyState
     public override void LateUpdate()
     {
         base.LateUpdate();
+
+        if (!InputManager.Instance.IsFullBody)
+        {
+            stateMachine.ChangeState(player.waitingState);
+            return;
+        }
     }
 
     protected bool IsCurrentAnimationDone()

@@ -11,7 +11,7 @@ public class PlayerFullBodyState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        UIManager.Instance.DesPoseFullbodyText.gameObject.SetActive(false);
+        UIManager.Instance.InstructText.gameObject.SetActive(false);
     }
 
     public override void Exit()
@@ -22,8 +22,6 @@ public class PlayerFullBodyState : PlayerState
     public override void LateUpdate()
     {
         base.LateUpdate();
-
-        if (poseLandmarkerResult.poseLandmarks == null || poseLandmarkerResult.poseLandmarks[0].landmarks == null) return;
 
         if (!InputManager.Instance.IsFullBody)
         {

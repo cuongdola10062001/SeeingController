@@ -36,8 +36,8 @@ public class PlayerState
     public virtual void LateUpdate()
     {
         stateTimer -= Time.deltaTime;
-        var poseVar = InputManager.Instance.CurrentPoseTarget;
-        poseVar.CloneTo(ref poseLandmarkerResult);
+        poseLandmarkerResult = InputManager.Instance.CurrentPoseTarget;
+        //InputManager.Instance.CurrentPoseTarget.CloneTo(ref poseLandmarkerResult);
     }
 
     public virtual void Exit()

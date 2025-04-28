@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 
     public float sideJumpForce =  4f;
     public float cooldownSelectDuration =  0.5f;
+    public float waitingTime =  3f;
 
     [SerializeField] private List<RoomProfile> roomList = new List<RoomProfile>();
     public List<RoomProfile> RoomList => roomList;
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
     public PlayerStateMachine stateMachine;
     public PlayerFullBodyState fullbodyState { get; private set; }
     public PlayerNotFullBodyState notFullbodyState { get; private set; }
+    public PlayerWaitingState waitingState { get; private set; }
     public PlayerSelectingState selectingState { get; private set; }
     public PlayerIdleState idleState { get; private set; }
     public PlayerCrouchState crouchState { get; private set; }
@@ -51,6 +53,7 @@ public class Player : MonoBehaviour
         fullbodyState = new PlayerFullBodyState(this, stateMachine, "None");
         selectingState = new PlayerSelectingState(this, stateMachine, "None");
         notFullbodyState = new PlayerNotFullBodyState(this, stateMachine, "None");
+        waitingState = new PlayerWaitingState(this, stateMachine, "None");
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
         crouchState = new PlayerCrouchState(this, stateMachine, "Crouch");
         punchHookLeftState = new PlayerPunchHookLeftState(this, stateMachine, "PunchHook_L");
